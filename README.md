@@ -8,3 +8,8 @@ Solve day 1:
 ```
 npm run day1
 ```
+
+Solve all days:
+```
+npm run all
+```
