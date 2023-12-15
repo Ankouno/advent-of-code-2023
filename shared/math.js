@@ -12,8 +12,7 @@ const lcm = (a, b) => (a * b) / gcd(a, b);
 /** Compute the least common multiple of an array of numbers. */
 const lcmList = (list) => list.reduce((a, b) => lcm(a, b), 1);
 
-
 module.exports = {
-  mod, log,
-  gcd, lcm, lcmList
-};
+  mod, log, gcd,
+  lcm, lcmList
+}

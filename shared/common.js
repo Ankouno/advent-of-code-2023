@@ -19,7 +19,28 @@ const printSolution = (num, func, padding = 10) => {
   console.log(`${num}) ${String(result).padEnd(padding)} [${runTime} ms]`);
 };
 
+/**
+ * Returns a higher-order function that caches the results of
+ *  calling a function with a particular set of arguments.
+ * If the function is called again with the same arguments,
+ *   it'll return the original result without re-running the function.
+ */
+const cacheResults = (func) => {
+  const cache = new Map();
+  return function() {
+    const key = JSON.stringify(arguments);
+    if (cache.has(key)) {
+      return cache.get(key);
+    } else {
+      const result = func.apply(null, arguments);
+      cache.set(key, result);
+      return result;
+    }
+  }
+}
+
 module.exports = {
   loadInput,
-  printSolution
+  printSolution,
+  cacheResults
 };
